@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Android CI-CD</string>
+    <string name="app_desc">This application demonstrates CI/CD for Android.</string>
+    <string name="app_version">App Version</string>
+</resources>
