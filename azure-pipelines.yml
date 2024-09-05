@@ -10,7 +10,19 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: Gradle@2
+- task: JavaToolInstaller@0
+  inputs:
+    versionSpec: '17'
+    jdkArchitectureOption: 'x64'
+    jdkSourceOption: 'PreInstalled'
+    jdkDestinationDirectory: '/usr/lib/jvm/'
+  
+- script: |
+    echo "##vso[task.setvariable variable=JAVA_HOME]$(JAVA_HOME_17_X64)"
+    echo "JAVA_HOME set to $(JAVA_HOME_17_X64)"
+  displayName: 'Set JAVA_HOME to Java 17'
+
+- task: Gradle@3
   inputs:
     workingDirectory: ''
     gradleWrapperFile: 'gradlew'
